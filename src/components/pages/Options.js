@@ -1,32 +1,26 @@
 import React from "react";
+import  "./createSurvey.css"
 function Options(props) {
   return (
-    <div className="option-div">
+
+    <div className="input-group mb-3">
       <input
         className="form-control"
-        style={{padding:"5px 45px"}}
+        type="text"
         value={
           props?.array[props.id]?.text
         }
-        type="text"
-        className="option-input"
+        aria-label="Username"
+        aria-describedby="basic-addon1"
         onChange={(event) => props.change(event, props.id)}
         placeholder="Type answer here"
       />
-      <button
-        className="btn btn-success"
-        onClick={props.array.length < 4 ? props.handleArray : null}
-      >
-        +
-      </button>
-      <button
-        className="btn btn-danger"
-        onClick={(event) =>
-          props.handleNegative ? props.handleNegative(event, props.id) : null
-        }
-      >
-        -
-      </button>
+
+      <span className="input-group-text" id="basic-addon1" onClick={props.array.length < 4 ? props.handleArray : null}>+
+      </span>
+      <span className="input-group-text" id="basic-addon1" onClick={(event) =>
+            props.handleNegative ? props.handleNegative(event, props.id) : null
+          }>-</span>
     </div>
   );
 }

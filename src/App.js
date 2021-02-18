@@ -10,11 +10,11 @@ import {
 } from "react-router-dom";
 import CreateSurvey from './components/pages/CreateSurvey'
 import TakeSurvey from './components/pages/TakeSurvey'
+import Thankyou from './components/pages/Thankyou'
 import Links from './Links'
 import {useState} from "react"
 function App() {
-  const [finalarray,setfinalarray]=useState([])
-  console.log("final array ",finalarray)
+  
   return (
     <Router>
       <div className='App'>
@@ -22,7 +22,7 @@ function App() {
         <Switch>
           <Route path="/createsurvey" exact>
             <Header />
-            <CreateSurvey setfinalarray={setfinalarray} />
+            <CreateSurvey  />
           </Route>
           <Route path="/takesurvey" exact>
             <Header />
@@ -34,7 +34,11 @@ function App() {
           </Route>
           <Route path="/createSurvey/publish" exact>
             <Header />
-            <TakeSurvey surveyList={finalarray}/>
+            <TakeSurvey />
+          </Route>
+          <Route path="/takesurvey/Thankyou" exact>
+            <Header />
+            <Thankyou />
           </Route>
         </Switch>
       </div>

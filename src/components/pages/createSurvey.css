@@ -1,0 +1,32 @@
+#options{ 
+    display: block; 
+    margin: auto ;
+    padding:6px 20px;
+    background-color:#111;
+    color:#fff;
+    outline: none;
+    border:1px solid black ;
+    border-radius: 5px;
+    margin-top:15px;
+
+}
+.h1p{
+    text-align: left;
+}
+.buttondiv{
+    text-align: right;
+}
+p{
+    text-align: left;
+}
+.checkbox1{
+    text-align: left;
+}
+.checkbox2{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.mybtn{
+    
+}

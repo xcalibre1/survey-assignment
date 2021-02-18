@@ -1,37 +1,38 @@
 import React from 'react'
-
+import "./createSurvey.css"
+import {Link} from "react-router-dom"
 function TakeSurvey(props){
-console.log("tak survey props",props.surveyList,"answers print",props.surveyList.answers,"questions print",props.surveyList.question)
+
 
   return (
     <form>
-     {props.surveyList?.map((item,index)=>(
-       <div>
-        {item?.questiontype==='multi-select'?
-         <React.Fragment key={index}>
-         <h3>{item?.question}</h3>
-         <div>{item?.answers.map((itm,idx)=>(
+     {props.surveyList.map((item,index)=>(
+       <div key={index}>
+        {item.questionType==='multi-select'?
+         <React.Fragment>
+         <p>{item.question}</p>
+         <div className="checkbox1">{item.answer.map((itm,idx)=>(
            <React.Fragment>
             <label  key={idx}>
                <input
-                 name={itm}
+                 name={itm.text}
                  type="checkbox"/>
-               {itm}
+               {itm.text}
            </label>
            <br></br>
            </React.Fragment>
         
          ))}</div>
         </React.Fragment>:
-        <React.Fragment key={index}>
-        <h3>{item?.question}</h3>
-        <div>{item?.answers.map((itm,idx)=>(
+        <React.Fragment>
+        <p>{item.question}</p>
+        <div className="checkbox2">{item.answer.map((itm,idx)=>(
           <React.Fragment>
            <label  key={idx}>
               <input
-                name={itm}
+                name={itm.text}
                 type="radio"/>
-              {itm}
+              {itm.text}
           </label>
           </React.Fragment>
        
@@ -39,27 +40,28 @@ console.log("tak survey props",props.surveyList,"answers print",props.surveyList
        </React.Fragment>}
        </div>
      ))}
-
-     <button>Confirm</button>
-
+    <div className="buttondiv">
+    <Link to="/takesurvey/Thankyou">
+     <button className="btn btn-danger m-3 ">Confirm</button>
+     </Link>
+      </div>
     </form>
   )
 }
 
-// TakeSurvey.defaultProps={
-//   surveyList:[
-//     {
-//       questiontype:'multiple-choice',
-//       question:'Which of the following app do you have in your phone',
-//       answers:['whatsapp','facebook','instagram','tinder']
-//     },
-//     {
-//       questiontype:'single-choice',
-//       question:'are you using twitter ?',
-//       answers:['yes','no']
-//     }
-//   ]
-
-// }
+TakeSurvey.defaultProps={
+  surveyList:[
+    {
+      questionType:'multi-select',
+      question:'Which of the following app do you have in your phone',
+      answer:[{text:'whatsapp'},{text:'facebook'},{text:'instagram'},{text:'tinder'}]
+    },
+    {
+      questionType:'single-choice',
+      question:'are you using twitter ?',
+      answer:[{text:'yes'},{text:'no'}]
+    }
+  ]
+}
 
 export default TakeSurvey;
