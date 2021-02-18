@@ -53,12 +53,12 @@ TakeSurvey.defaultProps={
   surveyList:[
     {
       questionType:'multi-select',
-      question:'Which of the following app do you have in your phone',
-      answer:[{text:'whatsapp'},{text:'facebook'},{text:'instagram'},{text:'tinder'}]
+      question:'which year india got freedom',
+      answer:[{text:'1967'},{text:'1998'},{text:'1958'},{text:'1947'}]
     },
     {
       questionType:'single-choice',
-      question:'are you using twitter ?',
+      question:'are u Ok ?',
       answer:[{text:'yes'},{text:'no'}]
     }
   ]
